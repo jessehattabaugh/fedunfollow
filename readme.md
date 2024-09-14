@@ -1,6 +1,6 @@
-# {{ repository.name }}
+# FedUnfollow
 
-{{ repository.description }}
+website that tells you who has unfollowed you
 
 ## Getting Started
 
