@@ -19,6 +19,34 @@
 	</header>
 	<main>
 		<h2>see who unfollowed you on the Fediverse</h2>
+		<form action="login" method="POST">
+			<label for="hostname">The hostname of your Mastodon instance:
+				<script>
+					function prependProtocol(el) {
+						const protocol = 'https://';
+						if(!el.value.startsWith(protocol)) {
+							el.value = protocol + el.value;
+						}
+					}
+				</script>
+				<datalist id="hostnames">
+					<option value="https://mastodon.social">
+					<option value="https://mstdn.jp">
+					<option value="https://mastodon.cloud">
+					<option value="https://mstdn.social">
+					<option value="https://mastodon.online">
+					<option value="https://mastodon.world">
+					<option value="https://mas.to">
+					<option value="https://universedon.com">
+					<option value="https://techhub.social">
+					<option value="https://mastodonapp.uk">
+				</datalist>
+				<input list="hostnames" name="hostname"
+					onblur="prependProtocol(this)"
+					placeholder="https://your.host.here" required type="url">
+			</label>
+			<button type="submit">Login</button>
+		</form>
 	</main>
 	<footer>
 		<small>&copy; 2024</small>
