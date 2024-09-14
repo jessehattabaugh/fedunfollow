@@ -23,14 +23,14 @@ async function handleLogin(event) {
 		/** create an app on the instance
 		 * @see https://docs.joinmastodon.org/methods/apps/#create
 		 */
-		const data = {
+		const body = new FormData({
 			client_name: 'FedUnfollow',
 			redirect_uris: 'authorized',
 			scopes: 'read',
-		};
+		});
 		const method = 'POST';
-		console.debug('creating app', { data, method, hostname });
-		const response = await fetch(`${hostname}/api/v1/apps`, { method, data });
+		console.debug('creating app', { body, method, hostname });
+		const response = await fetch(`${hostname}/api/v1/apps`, { method, body });
 		const app = await response.json();
 		console.debug(`app created: ${app}`);
 
