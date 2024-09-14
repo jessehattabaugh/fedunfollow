@@ -32,7 +32,7 @@ async function handleLogin(event) {
 		console.debug('creating app', { body, method, hostname });
 		const response = await fetch(`${hostname}/api/v1/apps`, { method, body });
 		const app = await response.json();
-		console.debug(`app created: ${app}`);
+		console.debug('app created', { app });
 
 		// store the app id and secret in local storage
 		const { client_id, client_secret } = app;
