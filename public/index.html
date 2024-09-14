@@ -9,8 +9,7 @@
 	<link rel="stylesheet" href="/styles/all.css">
 	<link rel="stylesheet" media="screen and (prefers-color-scheme: light)" href="/styles/light.css">
 	<link rel="stylesheet" media="screen and (min-width: 30em)" href="/styles/wide.css">
-	<script type="module" async src="/scripts/async.js"></script>
-	<script type="module" defer src="/scripts/defer.js"></script>
+	<script defer src="/scripts/index.js"></script>
 </head>
 
 <body>
@@ -19,16 +18,8 @@
 	</header>
 	<main>
 		<h2>see who unfollowed you on the Fediverse</h2>
-		<form action="login" method="POST">
-			<label for="hostname">The hostname of your Mastodon instance:
-				<script>
-					function prependProtocol(el) {
-						const protocol = 'https://';
-						if(!el.value.startsWith(protocol)) {
-							el.value = protocol + el.value;
-						}
-					}
-				</script>
+		<form name="login">
+			<label>The hostname of your Mastodon instance:
 				<datalist id="hostnames">
 					<option value="https://mastodon.social">
 					<option value="https://mstdn.jp">
@@ -41,9 +32,7 @@
 					<option value="https://techhub.social">
 					<option value="https://mastodonapp.uk">
 				</datalist>
-				<input list="hostnames" name="hostname"
-					onblur="prependProtocol(this)"
-					placeholder="https://your.host.here" required type="url">
+				<input list="hostnames" name="hostname" placeholder="https://your.host.here" required type="url">
 			</label>
 			<button type="submit">Login</button>
 		</form>
